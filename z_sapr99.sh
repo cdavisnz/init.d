@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-#    Name: /etc/init.d/z_sapr99
-#
+# Name: /etc/init.d/z_sapr99
 # Updated: 04/11/2016 Craig.Davis
 #
 # chkconfig: 345 90 10
