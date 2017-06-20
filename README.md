@@ -6,23 +6,23 @@ The SAP Router is an SAP program that acts as an intermediate station (proxy) in
 The following provides a recommend installation process for LINUX.
 
 ###### Set the install parameters
-```Shell
+```bash
 # sudo su - root
 # bash
 # _SAPINST=R99; export SAPINST
 ```
 ###### Defined users & groups
-```Shell
+```bash
 # groupadd -g <GID>
 # useradd -u <UID> -g sapsys -c "SAP Router" ${_SAPINST,,}adm -m -s /bin/csh
 # passwd ${_SAPINST,,}adm
 ```
 ###### SAPCAR
-```Shell
+```bash
 #
 ```
 ###### Create the direcorty structure 
-```Shell
+```bash
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/exe
 # mkdir /usr/sap/${_SAPINST}/saprouter/tmp
 # mkdir -p /usr/sap/${_SAPINST}/log
