@@ -1,2 +1,2 @@
 # init.d
-Init.d Scripts for SAP Services
+Init.d Scripts for SAP Services (SuSE Linux)
