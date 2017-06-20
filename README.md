@@ -32,6 +32,7 @@ The following provides a recommend installation process for LINUX.
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/log
 ```
 ###### Create a sample 'saprouttab':
+The following just creates a sample saprouttab with all connections denied as SAP Router needs this file to start. Please amended as per own requirements.
 ```shell-script
 # echo "D * * *" > /usr/sap/${_SAPINST}/saprouter/saprouttab
 # chmod 644 /usr/sap/${_SAPINST}/saprouter/saprouttab
