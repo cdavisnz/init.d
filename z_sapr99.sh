@@ -129,31 +129,15 @@ status()
     return ${RETVAL}
 }
 
-upgrade()
-{
-    if [ -d $SAPBASE/exe ]; then
-        if [ -x "/usr/bin/aws" ]; then
-            touch $SAPBASE/exe/.upgrading
-            find $SAPBASE/exe/* -user $SAPUSER ! -name sapcontrol -exec rm -f {} \;
-            aws s3 sync s3://software-sap/SAPROUTER_LINUX/exe $SAPBASE/exe --quiet
-            chmod -f 755 $SAPBASE/exe/_sap.sh
-            $SAPBASE/exe/_sap.sh $SAPBASE/exe $SAPBASE $SAPUSER
-            rm -f $SAPBASE/exe/.upgrading
-       fi
-    fi
-}
-
 case $1 in
   stop)
     stop
   ;;
   start)
-    upgrade
     start
   ;;
   restart)
     stop
-    upgrade
     start
   ;;
   reload)
