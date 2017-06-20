@@ -33,7 +33,7 @@ SAPPORT=3299
 
 SECUDIR=${SAPBASE}/sec; export SECUDIR
 SNC_LIB=${SAPBASE}/exe/libsapcrypto.so; export SNC_LIB
-SAPSNCP="offCN=R90AWS, OU=0000333798, OU=SAProuter, O=SAP, C=DE"
+SAPSNCP="CN=<SNC_Partner_Name"
 
 LOCKFILE=${SAPBASE}/tmp/z_sap${SAPUSER}.tmp
 LOGFILE=${SAPBASE}/tmp/saprouter-`whoami`.log
