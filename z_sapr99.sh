@@ -35,7 +35,7 @@ SECUDIR=$SAPBASE/sec; export SECUDIR
 SNC_LIB=$SAPBASE/exe/libsapcrypto.so; export SNC_LIB
 PATH=$PATH:$SAPBASE/exe; export PATH
 
-LOCKFILE=$SAPBASE/tmp/z_sapr99.tmp
+LOCKFILE=$SAPBASE/tmp/z_sap$SAPUSER.tmp
 LOGFILE=$SAPBASE/tmp/saprouter-`whoami`.log
 
 stop()
