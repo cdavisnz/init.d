@@ -53,7 +53,7 @@ Download the init.d script from thsi repo
 ```shell-script
 #
 ```
-Adjust the values for '$SAPSYSTEMNAME', '$SAPUSER', and '$SAPPORT' as required. If your SAP Router is to be SNC enabled provide Common Name within the parameter 'SAPSNCP'.
+Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide Common Name within the parameter `SAPSNCP`.
 ```shell-script
 SAPSYSTEMNAME=R99
 SAPUSER=r99adm
