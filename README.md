@@ -34,7 +34,7 @@ Create the following direcorty structure for the SAP Router.
 # mkdir /usr/sap/${_SAPINST}/saprouter/sec
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/log
 ```
-###### Permissions Table:
+###### Permission Table:
 The following just creates a sample 'saprouttab' file with all connections denied. The SAP Router needs this file to start, please amended as per your own requirements.
 ```shell-script
 # echo "D * * *" > /usr/sap/${_SAPINST}/saprouter/saprouttab
