@@ -10,7 +10,7 @@ The parameter `$_SAPINST` is a temporary variable for the install identifying th
 ```shell-script
 # sudo su - root
 # bash
-# _SAPINST=**R99**; export SAPINST
+# _SAPINST=\**R99**\; export SAPINST
 ```
 ###### Users & Group:
 Create the <sapsid>adm user account and group that the SAP Router will run under.
