@@ -49,8 +49,22 @@ Extract the SAP Software for the SAP Router and SAP Crypto Library.
 # chmod -r 755 /usr/sap/${_SAPINST}/
 ```
 ###### INIT.D:
+Download the init.d script from thsi repo
 ```shell-script
 #
+```
+Adjust the values for '$SAPSYSTEMNAME', '$SAPUSER', and '$SAPPORT' as required. If your SAP Router is to be SNC enabled provide Common Name within the parameter 'SAPSNCP'.
+```shell-script
+SAPSYSTEMNAME=R99
+SAPUSER=r99adm
+SAPBASE=/usr/sap/${SAPSYSTEMNAME}/saprouter
+SAPEXEC=${SAPBASE}/exe/saprouter
+SAPHOST=`hostname --ip-address`
+SAPPORT=3299
+
+SECUDIR=${SAPBASE}/sec; export SECUDIR
+SNC_LIB=${SAPBASE}/exe/libsapcrypto.so; export SNC_LIB
+SAPSNCP=""
 ```
 ###### SUDO:
 ```shell-script
