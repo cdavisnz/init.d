@@ -69,11 +69,12 @@ If  Secure Network Communications (SNC) is required, generrate the required cert
 # sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>, OU=<Customer Number>, OU=SAProuter, O=SAP, C=DE"
 # sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O r90adm
 ```
+
 ```shell-script
 # sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
 # chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
-###### Start SAProuter
+###### Commands:
 ```shell-script
 #
 ```
