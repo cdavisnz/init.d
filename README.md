@@ -10,7 +10,7 @@ The parameter `$_SAPINST` is a temporary variable for the install identifying th
 ```shell-script
 # sudo su - root
 # bash
-# _SAPINST=R99; export SAPINST
+# _SAPINST=`R99`; export SAPINST
 ```
 ###### Users & Group:
 Create the <sapsid>adm user account and group that the SAP Router will run under.
@@ -61,18 +61,19 @@ Extract the SAP Software for the SAP Router and SAP Crypto Library.
 #
 ```
 ###### Create the Certificate (Optional):
-If  Secure Network Communications (SNC) is required, generrate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP.
+If Secure Network Communications (SNC) is required, generate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP.
 ```shell-script
 # sudo su - ${_SAPINST,,}adm
+# setenv _SAPINST=R99
 # cd /usr/sap/${_SAPINST}/saprouter/sec
 # setenv SECUDIR=/usr/sap/${_SAPINST}/saprouter/sec
 # sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>, OU=<Customer Number>, OU=SAProuter, O=SAP, C=DE"
-# sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O r90adm
+# sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}ad
+# chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
-
+The following commands import 
 ```shell-script
 # sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
-# chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
 ###### Commands:
 ```shell-script
