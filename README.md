@@ -19,7 +19,7 @@ Create the <sapsid>adm user account and group that the SAP Router will run under
 # useradd -u <UID> -g sapsys -c "SAP Router" ${_SAPINST,,}adm -m -s /bin/csh
 # passwd ${_SAPINST,,}adm
 ```
-###### SAPCAR:
+###### Software[1]:
 Ensure the SAPCAR executable is downloaded and available.
 ```shell-script
 # cp SAPCAR_<VERSION>.SAR /usr/sbin/SAPCAR
@@ -40,7 +40,7 @@ The following just creates a sample 'saprouttab' file with all connections denie
 # echo "D * * *" > /usr/sap/${_SAPINST}/saprouter/saprouttab
 # chmod 644 /usr/sap/${_SAPINST}/saprouter/saprouttab
 ```
-###### Software:
+###### Software[2]:
 Extract the SAP Software for the SAP Router and SAP Crypto Library.
 ```shell-script
 # SAPCAR -xvf saprouter_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
@@ -71,9 +71,10 @@ If Secure Network Communications (SNC) is required, generate the required certif
 # sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}ad
 # chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
-The following commands import 
+The following command imports the reponse.crt file from a Certifiate Authority, in this case SAP SE.
 ```shell-script
 # sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
+# sapgenpse get_my_name -p ${_SAPINST}SSLS.pse
 ```
 ###### Commands:
 ```shell-script
