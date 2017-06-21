@@ -13,7 +13,7 @@ The parameter `$_SAPINST` is a temporary variable for the install identifying th
 # bash
 # _SAPINST=R99; export SAPINST
 ```
-###### Create the Users & Group:
+###### Users & Group:
 Create the <sapsid>adm user account and group that the SAP Router will run under.
 ```shell-script
 # groupadd -g <GID> sapsys
@@ -21,37 +21,39 @@ Create the <sapsid>adm user account and group that the SAP Router will run under
 # passwd ${_SAPINST,,}adm
 ```
 ###### SAPCAR:
+Ensure the SAPCAR executable is downloaded and available.
 ```shell-script
 # cp SAPCAR_<VERSION>.SAR /usr/sbin/SAPCAR
 # chown root:sapsys /usr/sbin/SAPCAR
 # chmod 755 /usr/sbin/SAPCAR
 ```
-###### Create the direcorty structure:
+###### Direcorty Structure:
+Create the following direcorty structure for the SAp Router.
 ```shell-script
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/exe
 # mkdir /usr/sap/${_SAPINST}/saprouter/tmp
 # mkdir /usr/sap/${_SAPINST}/saprouter/sec
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/log
 ```
-###### Create a sample 'saprouttab':
-The following just creates a sample saprouttab with all connections denied as SAP Router needs this file to start. Please amended as per own requirements.
+###### 'saprouttab':
+The following just creates a sample 'saprouttab' file with all connections denied. The SAP Router needs this file to start, please amended as per your own requirements.
 ```shell-script
 # echo "D * * *" > /usr/sap/${_SAPINST}/saprouter/saprouttab
 # chmod 644 /usr/sap/${_SAPINST}/saprouter/saprouttab
 ```
-###### Extract the Software:
+###### Software:
+Extract the SAP Software for the 'saprouter' and SAP Crypto Library.
 ```shell-script
-# SAPCAR saprouter_<VERSION>.SAR -xvf /usr/sap/${_SAPINST}/saprouter/exe/
-# SAPCAR SAPCRYPTOLIBP_<VERSION>.SAR -xvf /usr/sap/${_SAPINST}/saprouter/exe/
+# SAPCAR -xvf saprouter_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
+# SAPCAR -xvf SAPCRYPTOLIBP_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
 # chown -R ${_SAPINST,,}adm:sapsys /usr/sap/${_SAPINST}/
 # chmod -r 755 /usr/sap/${_SAPINST}/
 ```
-
 ###### Install the init.d script:
 ```shell-script
 #
 ```
-###### Super user do:
+###### Super User Do:
 ```shell-script
 #
 ```
@@ -60,7 +62,7 @@ The following just creates a sample saprouttab with all connections denied as SA
 #
 ```
 ###### Create the Certificate (Optional):
-The common name is your own, if it is a SNC connection to SAP then it is the SAP issued value.
+If  Secure Network Communications (SNC) is required, generrate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP.
 ```shell-script
 # sudo su - ${_SAPINST,,}adm
 # cd /usr/sap/${_SAPINST}/saprouter/sec
@@ -70,6 +72,7 @@ The common name is your own, if it is a SNC connection to SAP then it is the SAP
 ```
 ```shell-script
 # sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
+# chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
 ###### Start SAProuter
 ```shell-script
