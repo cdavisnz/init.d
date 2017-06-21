@@ -26,7 +26,7 @@ Ensure the SAPCAR executable is downloaded and available.
 # chown root:sapsys /usr/sbin/SAPCAR
 # chmod 755 /usr/sbin/SAPCAR
 ```
-###### Direcorty Structure:
+###### DIRECTORY:
 Create the following direcorty structure for the SAP Router.
 ```shell-script
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/exe
@@ -34,13 +34,13 @@ Create the following direcorty structure for the SAP Router.
 # mkdir /usr/sap/${_SAPINST}/saprouter/sec
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/log
 ```
-###### Permission Table:
+###### PERMISSION TABLE:
 The following just creates a sample 'saprouttab' file with all connections denied. The SAP Router needs this file to start, please amended as per your own requirements.
 ```shell-script
 # echo "D * * *" > /usr/sap/${_SAPINST}/saprouter/saprouttab
 # chmod 644 /usr/sap/${_SAPINST}/saprouter/saprouttab
 ```
-###### Software[2]:
+###### SOFTWARE:
 Extract the SAP Software for the SAP Router and SAP Crypto Library.
 ```shell-script
 # SAPCAR -xvf saprouter_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
@@ -48,19 +48,19 @@ Extract the SAP Software for the SAP Router and SAP Crypto Library.
 # chown -R ${_SAPINST,,}adm:sapsys /usr/sap/${_SAPINST}/
 # chmod -r 755 /usr/sap/${_SAPINST}/
 ```
-###### Install the init.d script:
+###### INIT.D:
 ```shell-script
 #
 ```
-###### Super User Do:
+###### SUOD:
 ```shell-script
 #
 ```
-###### Define the user environment :
+###### ENVIRONMENT:
 ```shell-script
 #
 ```
-###### Create the Certificate (Optional):
+###### CERTIFICATE (Optional):
 If Secure Network Communications (SNC) is required, generate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP.
 ```shell-script
 # sudo su - ${_SAPINST,,}adm
@@ -76,7 +76,20 @@ The following command imports the reponse.crt file from a Certifiate Authority, 
 # sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
 # sapgenpse get_my_name -p ${_SAPINST}SSLS.pse
 ```
-###### Commands:
+###### COMMANDS:
 ```shell-script
 #
 ```
+
+## Reference
+support.sap.com : Connectivity Tools SAP Router
+https://support.sap.com/en/tools/connectivity-tools/saprouter.html
+
+sap.help.com : SAP Router
+https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/487612ed5ca5055ee10000000a42189b.html
+
+suse.com : SAProuter Integration
+SUSE Linux Enterprise Server for SAP Applications 12 SP2
+https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
+https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
+
