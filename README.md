@@ -52,7 +52,7 @@ Extract the SAP Software for the SAP Router and SAP Crypto Library.
 ```shell-script
 #
 ```
-###### SUOD:
+###### SUDO:
 ```shell-script
 #
 ```
@@ -82,6 +82,7 @@ alias h 'history'
 alias cdexe 'cd /usr/sap/$SAPSYSTEMNAME/saprouter/exe'
 alias cdsec 'cd /usr/sap/$SAPSYSTEMNAME/saprouter/sec'
 alias cdD 'cd /usr/sap/$SAPSYSTEMNAME/saprouter'
+alias cdR 'cd /usr/sap/$SAPSYSTEMNAME/saprouter'
 alias saprouttab 'vi /usr/sap/$SAPSYSTEMNAME/saprouter/saprouttab'
 alias startsap 'sudo /bin/systemctl start z_sapr99'
 alias stopsap 'sudo /bin/systemctl stop z_sapr99'
@@ -93,7 +94,7 @@ alias reloadsap 'sudo /bin/systemctl reload z_sapr99'
 # chmod 640 /home/${_SAPINST,,}adm/.cshrc
 ```
 ###### CERTIFICATE (Optional):
-If Secure Network Communications (SNC) is required, generate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP.
+If Secure Network Communications (SNC) is required, generate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP. For more inforamtion of this visit the SAP support link below for Connectivity Tools SAP Router.
 ```shell-script
 # sudo su - ${_SAPINST,,}adm
 # setenv _SAPINST=R99
@@ -103,7 +104,7 @@ If Secure Network Communications (SNC) is required, generate the required certif
 # sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}ad
 # chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
-The following command imports the reponse.crt file from a Certifiate Authority, in this case SAP SE.
+The following command imports the 'reponse.crt' file from a Certifiate Authority, in this case SAP SE.
 ```shell-script
 # sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
 # sapgenpse get_my_name -p ${_SAPINST}SSLS.pse
@@ -123,5 +124,5 @@ https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/e
 suse.com : SAProuter Integration
 SUSE Linux Enterprise Server for SAP Applications 12 SP2
 https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
-https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
 
+Enjoy!
