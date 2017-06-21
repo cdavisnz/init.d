@@ -3,24 +3,23 @@
 The [SAP Router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html) is an SAP program that acts as an intermediate station (proxy) in a network connection between SAP Systems, or between SAP Systems and external networks. SAP Router controls the access to your network (application level gateway), and, as such, is a useful enhancement to an existing firewall system (port filter).
 
 The following provides my recommended installation process for LINUX.
-
-# Installation
-## Parameters:
-###### Install Parameters:
+ 
+## Installation
+###### PARAMETERS:
 The parameter `$_SAPINST` is a temporary variable for the install identifying the system, it just allows us to multiple saprouters on the one host and make's to look like a standard SAP application instance. For this example i've chosen is 'R' for router followed by the SAP port number '99' i.e. 3299, given me a SAP System ID of 'R99'.
 ```shell
 # sudo su - root
 # bash
 # _SAPINST=R99; export SAPINST
 ```
-###### Users & Group:
+###### ACCOUNTS:
 Create the <sapsid>adm user account and group that the SAP Router will run under.
 ```shell-script
 # groupadd -g <GID> sapsys
 # useradd -u <UID> -g sapsys -c "SAP Router" ${_SAPINST,,}adm -m -s /bin/csh
 # passwd ${_SAPINST,,}adm
 ```
-###### Software[1]:
+###### SOFTWARE:
 Ensure the SAPCAR executable is downloaded and available.
 ```shell-script
 # cp SAPCAR_<VERSION>.SAR /usr/sbin/SAPCAR
