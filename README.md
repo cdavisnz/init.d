@@ -57,8 +57,40 @@ Extract the SAP Software for the SAP Router and SAP Crypto Library.
 #
 ```
 ###### ENVIRONMENT:
+Create the follow user environment for the SAP Routers <sapsid>adm account
 ```shell-script
-#
+# vi /home/${_SAPINST,,}adm/.cshrc
+```
+```shell-script
+# @(#) $Id: //bas/721_REL/src/krn/tpls/ind/SAPSRC.CSH#1 $ SAP
+# systename
+setenv SAPSYSTEMNAME R99
+set prompt="`hostname`:$LOGNAME \!> "
+# no autologout
+set autologout = 0
+# number of commands saved in history list
+set history = 50
+# path
+setenv PATH ${PATH}:/usr/bin/nohup:/usr/sap/${SAPSYSTEMNAME}/saprouter/exe
+# sapgenpse
+setenv SECUDIR /usr/sap/${SAPSYSTEMNAME}/saprouter/sec
+setenv SNC_LIB /usr/sap/${SAPSYSTEMNAME}/saprouter/exe/libsapcrypto.so
+# define some nice aliases
+alias dir 'ls -l'
+alias l 'ls -abxCF'
+alias h 'history'
+alias cdexe 'cd /usr/sap/$SAPSYSTEMNAME/saprouter/exe'
+alias cdsec 'cd /usr/sap/$SAPSYSTEMNAME/saprouter/sec'
+alias cdD 'cd /usr/sap/$SAPSYSTEMNAME/saprouter'
+alias saprouttab 'vi /usr/sap/$SAPSYSTEMNAME/saprouter/saprouttab'
+alias startsap 'sudo /bin/systemctl start z_sapr99'
+alias stopsap 'sudo /bin/systemctl stop z_sapr99'
+alias statussap 'sudo /bin/systemctl status z_sapr99'
+alias reloadsap 'sudo /bin/systemctl reload z_sapr99'
+```
+```shell-script
+# chown ${_SAPINST,,}adm:sapsys /home/${_SAPINST,,}adm/.cshrc
+# chmod 640 /home/${_SAPINST,,}adm/.cshrc
 ```
 ###### CERTIFICATE (Optional):
 If Secure Network Communications (SNC) is required, generate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP.
