@@ -1,12 +1,14 @@
-## SAPROUTER
+## SAp Router
 Init.d Scripts for SAP Services (SuSE Linux)
 
 The [SAP Router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html) is an SAP program that acts as an intermediate station (proxy) in a network connection between SAP Systems, or between SAP Systems and external networks. SAP Router controls the access to your network (application level gateway), and, as such, is a useful enhancement to an existing firewall system (port filter).
 
-The following provides a recommend installation process for LINUX.
+The following provides my recommended installation process for LINUX.
 
 ## Installation
-###### Set the install parameters:
+###### Set the Install Parameters:
+The parameter `_SAPINST` is a variable to the SAP System ID that we give the install, just allows us to muiple saprouters on the one host and make's to look like a standard SAP application instance. For this example i've chosen is R for 'router' followed by the SAP port number '99', given me a SAP System ID of 'R99'.
+
 ```shell-script
 # sudo su - root
 # bash
