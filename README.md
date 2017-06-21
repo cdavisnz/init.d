@@ -57,7 +57,7 @@ Extract the SAP Software for the 'saprouter' and SAP Crypto Library.
 ```shell-script
 #
 ```
-###### Define the user environment:
+###### Define the user environment :
 ```shell-script
 #
 ```
