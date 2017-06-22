@@ -154,13 +154,13 @@ z_sapr99.service - LSB: Start the SAProuter
 
 ## Reference
 support.sap.com : Connectivity Tools SAP Router
-:small_orange_diamond: https://support.sap.com/en/tools/connectivity-tools/saprouter.html
+- https://support.sap.com/en/tools/connectivity-tools/saprouter.html
 
 sap.help.com : SAP Router
-:small_orange_diamond: https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/487612ed5ca5055ee10000000a42189b.html
+- https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/487612ed5ca5055ee10000000a42189b.html
 
 suse.com : SAProuter Integration
 SUSE Linux Enterprise Server for SAP Applications 12 SP2
-:small_orange_diamond: https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
+- https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
 
 Enjoy!
