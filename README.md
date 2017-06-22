@@ -53,8 +53,9 @@ Download the init.d script from thsi repo
 ```shell-script
 #
 ```
-Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=<Name>, OU=<Customer Number>, OU=SAProuter, O=SAP, C=DE"
+Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=<Name>, OU=<Customer Number>, OU=SAProuter, O=SAP, C=DE". To disable SNC leave the parameter as is. If the SAP Router is to be placed on another SAP System ID best to rename the script to reflect. 
 ```shell-script
+..
 SAPSYSTEMNAME=R99
 SAPUSER=r99adm
 SAPBASE=/usr/sap/${SAPSYSTEMNAME}/saprouter
@@ -65,6 +66,7 @@ SAPPORT=3299
 SECUDIR=${SAPBASE}/sec; export SECUDIR
 SNC_LIB=${SAPBASE}/exe/libsapcrypto.so; export SNC_LIB
 SAPSNCP=""
+..
 ```
 ###### SUDO:
 ```shell-script
