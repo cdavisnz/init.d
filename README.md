@@ -51,7 +51,10 @@ Extract the SAP software for the SAP Router and SAP Crypto Library to the execut
 ###### INIT.D:
 Download the init.d script `z_sapr99.sh` from this repository.
 ```shell-script
-#
+# cd /etc/init.d
+# wget ...
+# chown root:sapsys z_sapr99
+# chmod 750 z_sapr99
 ```
 Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable SNC leave the parameter as is. If the SAP Router is to be placed on another SAP System ID, rename the script to reflect. 
 ```shell-script
@@ -69,8 +72,11 @@ SAPSNCP=""
 ..
 ```
 ###### SUDO:
+Via sudo allow the \<sapsid\>adm rights to access the init.d script. 
 ```shell-script
-#
+# visudo
+...
+
 ```
 ###### ENVIRONMENT:
 Create the follow user environment for the SAP Routers <sapsid>adm account
@@ -149,6 +155,7 @@ z_sapr99.service - LSB: Start the SAProuter
   Process: 78976 ExecStart=/etc/init.d/z_sapr99 start (code=exited, status=0/SUCCESS)
    CGroup: /system.slice/z_sapr99.service
            └─79024 /usr/sap/R99/saprouter/exe/saprouter -r -H <HOST> -I <HOST> .... 
+#
 ```
 ## Recommendations
 
