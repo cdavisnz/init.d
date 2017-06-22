@@ -13,7 +13,7 @@ The parameter `$_SAPINST` is a temporary variable for the install identifying th
 # _SAPINST=R99; export SAPINST
 ```
 ###### ACCOUNTS:
-Create the <sapsid>adm user account and group that the SAP Router will run under.
+Create the \<sapsid\>adm user account and group that the SAP Router will run under.
 ```shell-script
 # groupadd -g <GID> sapsys
 # useradd -u <UID> -g sapsys -c "SAP Router" ${_SAPINST,,}adm -m -s /bin/csh
@@ -137,7 +137,7 @@ sapds4e1:/etc/init.d # ./z_sapr99 stop
 redirecting to systemctl stop .service
 Shutdown SAPRouter R99:                                               done
 ```
-As <sapsid>adm, the stop and starting of SAP Router can be done by the alias commands. 
+As \<sapsid\>adm, the stop and starting of SAP Router can be done by the alias commands. 
 ```
 # stopsap
 # startsap
