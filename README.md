@@ -116,7 +116,7 @@ If Secure Network Communications (SNC) is required, generate the required certif
 # setenv _SAPINST=R99
 # cd /usr/sap/${_SAPINST}/saprouter/sec
 # setenv SECUDIR=/usr/sap/${_SAPINST}/saprouter/sec
-# sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>, OU=<Customer Number>, OU=SAProuter, O=SAP, C=DE"
+# sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>, ..."
 # sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}ad
 # chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
