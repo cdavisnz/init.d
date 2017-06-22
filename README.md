@@ -53,7 +53,7 @@ Download the init.d script from thsi repo
 ```shell-script
 #
 ```
-Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=<Name>, OU=<Customer Number>, OU=SAProuter, O=SAP, C=DE". To disable SNC leave the parameter as is. If the SAP Router is to be placed on another SAP System ID best to rename the script to reflect. 
+Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable SNC leave the parameter as is. If the SAP Router is to be placed on another SAP System ID best to rename the script to reflect. 
 ```shell-script
 ..
 SAPSYSTEMNAME=R99
