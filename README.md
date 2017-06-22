@@ -139,14 +139,15 @@ Shutdown SAPRouter R99:                                               done
 ```
 As <sapsid>adm, the stop and starting of SAP Router can be done by the alias commands. 
 ```
-# sudo /bin/systemctl start z_sapr99
+# stopsap
+# startsap
 # statussap
 z_sapr99.service - LSB: Start the SAProuter
    Loaded: loaded (/etc/init.d/z_sapr99)
    Active: active (running) since Thu 2017-06-22 15:00:35 NZST; 2s ago
   Process: 78976 ExecStart=/etc/init.d/z_sapr99 start (code=exited, status=0/SUCCESS)
    CGroup: /system.slice/z_sapr99.service
-           └─79024 /usr/sap/R99/saprouter/exe/saprouter -r -H <HOST> -I <HOST> -S 3299 -Z -D -E -J 1048576 -W 60000 -R 
+           └─79024 /usr/sap/R99/saprouter/exe/saprouter -r -H <HOST> -I <HOST> .... 
 ```
 ## Recommendations
 
