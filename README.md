@@ -27,7 +27,7 @@ Ensure the SAPCAR executable is downloaded and available.
 # chmod 755 /usr/sbin/SAPCAR
 ```
 ###### DIRECTORY:
-Create the following direcorty structure for the SAP Router.
+Create the following direcorty structure for the SAP Router installation.
 ```shell-script
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/exe
 # mkdir /usr/sap/${_SAPINST}/saprouter/tmp
@@ -41,7 +41,7 @@ The following just creates a sample 'saprouttab' file with all connections denie
 # chmod 644 /usr/sap/${_SAPINST}/saprouter/saprouttab
 ```
 ###### SOFTWARE:
-Extract the SAP Software for the SAP Router and SAP Crypto Library.
+Extract the SAP software for the SAP Router and SAP Crypto Library to the executable direcory.
 ```shell-script
 # SAPCAR -xvf saprouter_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
 # SAPCAR -xvf SAPCRYPTOLIBP_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
@@ -49,11 +49,11 @@ Extract the SAP Software for the SAP Router and SAP Crypto Library.
 # chmod -r 755 /usr/sap/${_SAPINST}/
 ```
 ###### INIT.D:
-Download the init.d script from thsi repo
+Download the init.d script `z_sapr99.sh` from this repository.
 ```shell-script
 #
 ```
-Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable SNC leave the parameter as is. If the SAP Router is to be placed on another SAP System ID best to rename the script to reflect. 
+Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable SNC leave the parameter as is. If the SAP Router is to be placed on another SAP System ID, rename the script to reflect. 
 ```shell-script
 ..
 SAPSYSTEMNAME=R99
@@ -137,8 +137,9 @@ sapds4e1:/etc/init.d # ./z_sapr99 stop
 redirecting to systemctl stop .service
 Shutdown SAPRouter R99:                                               done
 ```
-As \<sapsid\>adm, the stop and starting of SAP Router can be done by the alias commands. 
+As \<sapsid\>adm, stop and start the SAP Router via the prefered alias's. i.e. stopsap
 ```
+# sudo su - r99adm
 # stopsap
 # startsap
 # statussap
@@ -153,13 +154,13 @@ z_sapr99.service - LSB: Start the SAProuter
 
 ## Reference
 support.sap.com : Connectivity Tools SAP Router
-https://support.sap.com/en/tools/connectivity-tools/saprouter.html
+:small_orange_diamond: https://support.sap.com/en/tools/connectivity-tools/saprouter.html
 
 sap.help.com : SAP Router
-https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/487612ed5ca5055ee10000000a42189b.html
+:small_orange_diamond: https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/487612ed5ca5055ee10000000a42189b.html
 
 suse.com : SAProuter Integration
 SUSE Linux Enterprise Server for SAP Applications 12 SP2
-https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
+:small_orange_diamond: https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
 
 Enjoy!
