@@ -165,7 +165,7 @@ z_sapr99.service - LSB: Start the SAProuter
 #
 ```
 ## Recommendations
-Ensure that SAP router and SAP crypto library executable's are patched regularly. 
+Ensure that SAP router and SAP crypto library executable's are patched regularly, this addresses any know security or software issues.
 
 ## Reference & Support Documentation
 support.sap.com : Connectivity Tools SAP Router
