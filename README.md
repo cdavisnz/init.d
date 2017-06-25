@@ -13,21 +13,21 @@ The parameter `$_SAPINST` is a temporary variable for the install identifying th
 # _SAPINST=R99; export SAPINST
 ```
 ###### ACCOUNTS:
-Create the \<sapsid\>adm user account and group that the SAP Router process will run under, provide the groupid \<GID\> and userid \<UID\> as required.
+Create the \<sapsid\>adm user account and group that the SAP router process will run under, provide the groupid \<GID\> and userid \<UID\> as required.
 ```shell-script
 # groupadd -g <GID> sapsys
 # useradd -u <UID> -g sapsys -c "SAP Router" ${_SAPINST,,}adm -m -s /bin/csh
 # passwd ${_SAPINST,,}adm
 ```
 ###### SOFTWARE:
-Ensure the SAPCAR executable is downloaded and available.
+Ensure the SAPCAR executable is downloaded and available for use.
 ```shell-script
 # cp SAPCAR_<VERSION>.SAR /usr/sbin/SAPCAR
 # chown root:sapsys /usr/sbin/SAPCAR
 # chmod 755 /usr/sbin/SAPCAR
 ```
 ###### DIRECTORY:
-Create the following direcorty structure for the SAP Router installation.
+Create the following direcorty structure for the SAP router installation.
 ```shell-script
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/exe
 # mkdir /usr/sap/${_SAPINST}/saprouter/tmp
@@ -35,13 +35,13 @@ Create the following direcorty structure for the SAP Router installation.
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/log
 ```
 ###### PERMISSION TABLE:
-The following just creates a sample 'saprouttab' file with all connections denied. The SAP Router needs this file to start, please amended as per your own requirements.
+The following just creates a sample 'saprouttab' file with all connections denied. The SAP router needs this file to start, please amended as per your own requirements.
 ```shell-script
 # echo "D * * *" > /usr/sap/${_SAPINST}/saprouter/saprouttab
 # chmod 644 /usr/sap/${_SAPINST}/saprouter/saprouttab
 ```
 ###### SOFTWARE:
-Extract the SAP software for the SAP Router and SAP Crypto Library to the executable direcory.
+Extract the SAP software for the SAP router and SAP crypto library to the executable direcory.
 ```shell-script
 # SAPCAR -xvf saprouter_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
 # SAPCAR -xvf SAPCRYPTOLIBP_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
@@ -56,7 +56,7 @@ Download the init.d script `z_sapr99.sh` from this repository.
 # chown root:sapsys z_sapr99
 # chmod 750 z_sapr99
 ```
-Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP Router is to be SNC enabled provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable SNC leave the parameter as is. If the SAP Router is to be placed on another SAP System ID, rename the script to reflect. 
+Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP router is to be SNC enabled, please provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable, leave the parameter as is. If the SAP router is to be placed on another SAP System ID, rename the script to reflect. 
 ```shell-script
 ..
 SAPSYSTEMNAME=R99
@@ -75,14 +75,16 @@ SAPSNCP=""
 Via sudo allow the \<sapsid\>adm rights to access the init.d script. 
 ```shell-script
 # visudo
-...
-
+```
+```
+# 
 ```
 ###### ENVIRONMENT:
-Create the follow user environment for the SAP Routers <sapsid>adm account
+Create the follow user environment for the SAP router \<sapsid\>adm account.
 ```shell-script
 # vi /home/${_SAPINST,,}adm/.cshrc
 ```
+Copy in the following content and save the file.
 ```shell-script
 # @(#) $Id: //bas/721_REL/src/krn/tpls/ind/SAPSRC.CSH#1 $ SAP
 # systename
@@ -143,7 +145,7 @@ sapds4e1:/etc/init.d # ./z_sapr99 stop
 redirecting to systemctl stop .service
 Shutdown SAPRouter R99:                                               done
 ```
-As \<sapsid\>adm, stop and start the SAP Router via the prefered alias's. i.e. stopsap
+As \<sapsid\>adm, stop and start the SAP router via the predefined alias's. i.e. stopsap
 ```
 # sudo su - r99adm
 # stopsap
@@ -159,7 +161,7 @@ z_sapr99.service - LSB: Start the SAProuter
 ```
 ## Recommendations
 
-## Reference
+## Reference & Support Documentation
 support.sap.com : Connectivity Tools SAP Router
 - https://support.sap.com/en/tools/connectivity-tools/saprouter.html
 
