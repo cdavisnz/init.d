@@ -72,12 +72,17 @@ SAPSNCP=""
 ..
 ```
 ###### SUDO:
-Via sudo allow the \<sapsid\>adm rights to access the init.d script. 
+Via sudo allow the \<sapsid\>adm rights to access the init.d script, edit the sudoers.d file as required.
 ```shell-script
 # visudo
 ```
 ```
-# 
+...
+# SAP Router Commands
+r99adm ALL = (root) NOPASSWD: /bin/systemctl start z_sapr99
+r99adm ALL = (root) NOPASSWD: /bin/systemctl stop z_sapr99
+r99adm ALL = (root) NOPASSWD: /bin/systemctl status z_sapr99
+r99adm ALL = (root) NOPASSWD: /bin/systemctl reload z_sapr99
 ```
 ###### ENVIRONMENT:
 Create the follow user environment for the SAP router \<sapsid\>adm account.
