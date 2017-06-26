@@ -139,9 +139,9 @@ If Secure Network Communications (SNC) is required, generate the required certif
 host:r99adm 1> setenv _SAPINST=R99
 host:r99adm 2> cd /usr/sap/${_SAPINST}/saprouter/sec
 host:r99adm 3> setenv SECUDIR /usr/sap/${_SAPINST}/saprouter/sec
-host:r99adm 4> sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>, ..."
+host:r99adm 4> sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>,"
 host:r99adm 5> sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}ad
-host:r99adm 6> chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
+host:r99adm 6> chmod 600 ${_SAPINST}SSLS.pse cred_v2
 ```
 The following command imports the 'reponse.crt' file from a Certifiate Authority, in this case SAP SE.
 ```shell-script
