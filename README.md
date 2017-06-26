@@ -51,10 +51,11 @@ Extract the SAP software for the SAP router and SAP crypto library to the execut
 # chmod -r 755 /usr/sap/${_SAPINST}/
 ```
 ###### INIT.D:
-Download the init.d script `z_sapr99.sh` from this repository.
+Download the init.d script `z_sapr99_<os_type>.sh` from this repository.
 ```shell-script
 # cd /etc/init.d
 # wget ...
+# mv ?
 # chown root:sapsys z_sapr99
 # chmod 750 z_sapr99
 ```
@@ -91,7 +92,7 @@ Create the follow user environment for the SAP router \<sapsid\>adm account.
 ```shell-script
 # vi /home/${_SAPINST,,}adm/.cshrc
 ```
-Copy in the following content and save the file.
+Copy in the following content and save the file and adpate for any SAP System ID change.
 ```shell-script
 # @(#) $Id: //bas/721_REL/src/krn/tpls/ind/SAPSRC.CSH#1 $ SAP
 # systename
@@ -128,17 +129,17 @@ alias reloadsap 'sudo /bin/systemctl reload z_sapr99'
 If Secure Network Communications (SNC) is required, generate the required certififate. The common name is your own, if it is a SNC connection to SAP then it is the value issued by SAP. For more inforamtion of this visit the SAP support link below for Connectivity Tools SAP Router.
 ```shell-script
 # sudo su - ${_SAPINST,,}adm
-# setenv _SAPINST=R99
-# cd /usr/sap/${_SAPINST}/saprouter/sec
-# setenv SECUDIR=/usr/sap/${_SAPINST}/saprouter/sec
-# sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>, ..."
-# sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}ad
-# chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
+host:r99adm 1> setenv _SAPINST=R99
+host:r99adm 2> cd /usr/sap/${_SAPINST}/saprouter/sec
+host:r99adm 3> setenv SECUDIR /usr/sap/${_SAPINST}/saprouter/sec
+host:r99adm 4> sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certreq -p ${_SAPINST}SSLS.pse "CN=<Name>, ..."
+host:r99adm 5> sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}ad
+host:r99adm 6> chmod 600 /usr/sap/${_SAPINST}/saprouter/sec/${_SAPINST}SSLS.pse /usr/sap/${_SAPINST}/saprouter/sec/cred_v2
 ```
 The following command imports the 'reponse.crt' file from a Certifiate Authority, in this case SAP SE.
 ```shell-script
-# sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
-# sapgenpse get_my_name -p ${_SAPINST}SSLS.pse
+host:r99adm 7> sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
+host:r99adm 8> sapgenpse get_my_name -p ${_SAPINST}SSLS.pse
 ```
 ###### COMMANDS:
 As root
@@ -155,18 +156,17 @@ Shutdown SAPRouter R99:                                               done
 As \<sapsid\>adm, stop and start the SAP router via the predefined alias's. i.e. stopsap
 ```
 # sudo su - r99adm
-# stopsap
-# startsap
-# statussap
+host:r99adm 1> stopsap
+host:r99adm 2> startsap
+host:r99adm 3> statussap
 z_sapr99.service - LSB: Start the SAProuter
    Loaded: loaded (/etc/init.d/z_sapr99)
    Active: active (running) since Thu 2017-06-22 15:00:35 NZST; 2s ago
   Process: 78976 ExecStart=/etc/init.d/z_sapr99 start (code=exited, status=0/SUCCESS)
    CGroup: /system.slice/z_sapr99.service
            └─79024 /usr/sap/R99/saprouter/exe/saprouter -r -H <HOST> -I <HOST> .... 
-#
+host:r99adm 4>
 ```
-
 ## Reference & Support Documentation
 support.sap.com : Connectivity Tools SAP Router
 \- https://support.sap.com/en/tools/connectivity-tools/saprouter.html
@@ -178,4 +178,4 @@ suse.com : SAProuter Integration
 SUSE Linux Enterprise Server for SAP Applications 12 SP2
 \- https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
 
-Enjoy!
+:simple_smile: @cdavisnz
