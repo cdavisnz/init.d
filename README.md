@@ -1,8 +1,9 @@
 # SAP Router
 
 > Status: 
-:simple_smile:
-:EMOJICODE::simple_smile:
+
+# :simple_smile:
+
 The [SAP Router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html) is an SAP program that acts as an intermediate station (proxy) in a network connection between SAP Systems, or between SAP Systems and external networks. SAP Router controls the access to your network (application level gateway), and, as such, is a useful enhancement to an existing firewall system (port filter).
 
 The following provides my recommended installation process for LINUX and includes an /etc/init.d script.
