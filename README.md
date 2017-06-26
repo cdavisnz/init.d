@@ -143,7 +143,7 @@ host:r99adm 4> sapgenpse get_pse -v -a sha256WithRsaEncryption -s 2048 -r certre
 host:r99adm 5> sapgenpse seclogin -p ${_SAPINST}SSLS.pse -O ${_SAPINST,,}adm
 host:r99adm 6> chmod 600 ${_SAPINST}SSLS.pse cred_v2
 ```
-The following command imports the 'reponse.crt' file from a Certifiate Authority, in this case SAP SE.
+The following command imports the 'reponse.crt' file from a Certificate Authority, in this case SAP SE.
 ```shell-script
 host:r99adm 7> sapgenpse import_own_cert -c reponse.crt -p ${_SAPINST}SSLS.pse
 host:r99adm 8> sapgenpse get_my_name -p ${_SAPINST}SSLS.pse
@@ -186,5 +186,5 @@ suse.com : SAProuter Integration
 SUSE Linux Enterprise Server for SAP Applications 12 SP2
 \- https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
 
-\--
-\@cdavisnz
+###### --
+###### @cdavisnz
