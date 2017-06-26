@@ -53,13 +53,15 @@ Extract the SAP software for the SAP router and SAP crypto library to the execut
 Download the init.d script `z_sapr99_<os_type>.sh` from this repository.
 ```shell-script
 # cd /etc/init.d
-# wget ...
-# mv ?
-# chown root:sapsys z_sapr99
-# chmod 750 z_sapr99
+# wget https://raw.githubusercontent.com/cdavisnz/SAP-Router/master/z_sapr99_SUSE.sh
+# mv z_sapr99_SUSE.sh z_sap ${_SAPINST,,}.sh
+# chown root:sapsys z_sap ${_SAPINST,,}.sh
+# chmod 750 z_sap ${_SAPINST,,}.sh
 ```
 Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP router is to be SNC enabled, please provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable, leave the parameter as is. If the SAP router is to be placed on another SAP System ID, rename the script to reflect. 
 ```shell-script
+# vi  z_sap ${_SAPINST,,}.sh
+:set fileformat=unix
 ...
 SAPSYSTEMNAME=R99
 SAPUSER=r99adm
@@ -71,7 +73,8 @@ SAPPORT=3299
 SECUDIR=${SAPBASE}/sec; export SECUDIR
 SNC_LIB=${SAPBASE}/exe/libsapcrypto.so; export SNC_LIB
 SAPSNCP=""
-..
+...
+:wq!
 ```
 Add and enable the script to execute on start-up.
 ```shell-script
