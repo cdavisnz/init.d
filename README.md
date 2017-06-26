@@ -156,7 +156,8 @@ As root
 # ./z_sapr99 start
 redirecting to systemctl start .service
 Startup SAPRouter R99:                                                done
-sapds4e1:/etc/init.d # ./z_sapr99 stop
+
+# ./z_sapr99 stop
 redirecting to systemctl stop .service
 Shutdown SAPRouter R99:                                               done
 ```
@@ -168,7 +169,7 @@ host:r99adm 2> startsap
 host:r99adm 3> statussap
 z_sapr99.service - LSB: Start the SAProuter
    Loaded: loaded (/etc/init.d/z_sapr99)
-   Active: active (running) since Thu 2017-06-22 15:00:35 NZST; 2s ago
+   Active: active (running) since Thu 2016-06-22 15:00:35 NZST; 2s ago
   Process: 78976 ExecStart=/etc/init.d/z_sapr99 start (code=exited, status=0/SUCCESS)
    CGroup: /system.slice/z_sapr99.service
            └─79024 /usr/sap/R99/saprouter/exe/saprouter -r -H <HOST> -I <HOST> .... 
