@@ -7,7 +7,7 @@ The following provides my recommended installation process for LINUX and include
  
 ## Installation
 ###### PARAMETERS:
-The parameter `$_SAPINST` is a temporary variable for the install identifying the system, it just allows us to install multiple saprouters on the one host and gives the apperance that the instal looks like a standard SAP application layout. For this example i've chosen is 'R' for router followed by the SAP port number '99' i.e. 3299, given me a SAP System ID of 'R99'.
+The parameter `$_SAPINST` is a temporary variable for the install identifying the system, it just allows us to install multiple saprouters on the one host and gives the apperance that the instal looks like a standard SAP application layout. For this example 'R' for router followed by the SAP port number '99' i.e. 3299, i.e. SAP System ID of 'R99'.
 ```shell
 # sudo su - root
 # bash
