@@ -166,18 +166,16 @@ z_sapr99.service - LSB: Start the SAProuter
            └─79024 /usr/sap/R99/saprouter/exe/saprouter -r -H <HOST> -I <HOST> .... 
 #
 ```
-## Recommendations
-Ensure that SAP router and SAP crypto library executable's are patched regularly, this addresses any know security or software issues.
 
 ## Reference & Support Documentation
 support.sap.com : Connectivity Tools SAP Router
-- https://support.sap.com/en/tools/connectivity-tools/saprouter.html
+/- https://support.sap.com/en/tools/connectivity-tools/saprouter.html
 
 sap.help.com : SAP Router
-- https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/487612ed5ca5055ee10000000a42189b.html
+/- https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/487612ed5ca5055ee10000000a42189b.html
 
 suse.com : SAProuter Integration
 SUSE Linux Enterprise Server for SAP Applications 12 SP2
-- https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
+/- https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
 
 Enjoy!
