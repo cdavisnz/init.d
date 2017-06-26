@@ -23,7 +23,7 @@ Create the \<sapsid\>adm user account and group that the SAP router process will
 ###### SOFTWARE:
 Ensure the SAPCAR executable is downloaded and available for use.
 ```shell-script
-# cp SAPCAR_<VERSION>.SAR /usr/sbin/SAPCAR
+# cp SAPCAR_<VERSION>.EXE /usr/sbin/SAPCAR
 # chown root:sapsys /usr/sbin/SAPCAR
 # chmod 755 /usr/sbin/SAPCAR
 ```
