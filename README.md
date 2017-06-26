@@ -60,7 +60,7 @@ Download the init.d script `z_sapr99_<os_type>.sh` from this repository.
 ```
 Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP router is to be SNC enabled, please provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable, leave the parameter as is. If the SAP router is to be placed on another SAP System ID, rename the script to reflect. 
 ```shell-script
-..
+...
 SAPSYSTEMNAME=R99
 SAPUSER=r99adm
 SAPBASE=/usr/sap/${SAPSYSTEMNAME}/saprouter
@@ -72,6 +72,11 @@ SECUDIR=${SAPBASE}/sec; export SECUDIR
 SNC_LIB=${SAPBASE}/exe/libsapcrypto.so; export SNC_LIB
 SAPSNCP=""
 ..
+```
+Add and enable the script to execute on start-up.
+```shell-script
+# chkconfig -a z_sapr99
+# chkconfig z_sapr99 on
 ```
 ###### SUDO:
 Via sudo allow the \<sapsid\>adm rights to access the init.d script, edit the sudoers.d file as required.
