@@ -186,5 +186,4 @@ suse.com : SAProuter Integration
 SUSE Linux Enterprise Server for SAP Applications 12 SP2
 \- https://www.suse.com/documentation/sles-for-sap-12/singlehtml/book_s4s/book_s4s.html#sec.s4s.configure.saprouter
 
-###### --
 ###### @cdavisnz
