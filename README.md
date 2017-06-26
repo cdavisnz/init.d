@@ -36,7 +36,7 @@ Create the following direcorty structure for the SAP router installation.
 # mkdir -p /usr/sap/${_SAPINST}/saprouter/log
 ```
 ###### PERMISSION TABLE:
-The following just creates a sample 'saprouttab' file with all connections denied. The SAP router needs this file to start, please amended as per your own requirements. sap.help.com [Route Permission Table](https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/486c7a3fc1504e6ce10000000a421937.html)
+The following just creates a sample 'saprouttab' file with all connections denied. The SAP router needs this file to start, please amended as per your own requirements \- sap.help.com [Route Permission Table](https://uacp2.hana.ondemand.com/viewer/e245703406684d8a81812f4c6334eb2f/7.51.0/en-US/486c7a3fc1504e6ce10000000a421937.html).
 ```shell-script
 # echo "D * * *" > /usr/sap/${_SAPINST}/saprouter/saprouttab
 # chmod 644 /usr/sap/${_SAPINST}/saprouter/saprouttab
@@ -58,7 +58,7 @@ Download the init.d script `z_sapr99_<os_type>.sh` from this repository.
 # chown root:sapsys z_sap ${_SAPINST,,}.sh
 # chmod 750 z_sap ${_SAPINST,,}.sh
 ```
-Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP router is to be SNC enabled, please provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable, leave the parameter as is. If the SAP router is to be placed on another SAP System ID, rename the script to reflect. 
+Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP router is to be SNC enabled, please provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable, leave the parameter as is.  
 ```shell-script
 # vi  z_sap ${_SAPINST,,}.sh
 :set fileformat=unix
