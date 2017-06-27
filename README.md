@@ -88,6 +88,7 @@ Via sudo allow the \<sapsid\>adm rights to access the init.d script, edit the su
 ```shell-script
 # visudo
 ```
+Add the following content and save the file , modify if required to reflect the correct SAP System ID.
 ```
 ...
 # SAP Router Commands
@@ -101,7 +102,7 @@ Create the follow user environment for the SAP router \<sapsid\>adm account.
 ```shell-script
 # vi /home/${_SAPINST,,}adm/.cshrc
 ```
-Copy in the following content and save the file and modify if required to reflect the correct SAP System ID.
+Copy in the following content and save the file, modify if required to reflect the correct SAP System ID.
 ```shell-script
 # @(#) $Id: //bas/721_REL/src/krn/tpls/ind/SAPSRC.CSH#1 $ SAP
 # systename
