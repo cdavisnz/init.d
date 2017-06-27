@@ -47,6 +47,7 @@ Extract the SAP software for the SAP router and SAP crypto library to the execut
 ```shell-script
 # SAPCAR -xvf saprouter_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
 # SAPCAR -xvf SAPCRYPTOLIBP_<VERSION>.SAR -R /usr/sap/${_SAPINST}/saprouter/exe/
+# chown root:sapsys /usr/sap/
 # chown -R ${_SAPINST,,}adm:sapsys /usr/sap/${_SAPINST}/
 # chmod -r 755 /usr/sap/${_SAPINST}/
 ```
