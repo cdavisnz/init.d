@@ -56,13 +56,13 @@ Download the init.d script `z_sapr99_<os_type>.sh` from this repository.
 ```shell-script
 # cd /etc/init.d
 # wget https://raw.githubusercontent.com/cdavisnz/SAP-Router/master/z_sapr99_SUSE.sh
-# mv z_sapr99_SUSE.sh z_sap ${_SAPINST,,}.sh
-# chown root:sapsys z_sap ${_SAPINST,,}.sh
-# chmod 750 z_sap ${_SAPINST,,}.sh
+# mv z_sapr99_SUSE.sh z_sap${_SAPINST,,}
+# chown root:sapsys z_sap${_SAPINST,,}
+# chmod 750 z_sap${_SAPINST,,}
 ```
 Adjust the values for `$SAPSYSTEMNAME`, `$SAPUSER`, and `$SAPPORT` as required. If your SAP router is to be SNC enabled, please provide the Common Name within the parameter `SAPSNCP` i.e. SAPSNCP="CN=\<Name\>, OU=\<Customer Number\>, OU=SAProuter, O=SAP, C=DE". To disable, leave the parameter as is.  
 ```shell-script
-# vi  z_sap ${_SAPINST,,}.sh
+# vi  z_sap ${_SAPINST,,}
 :set fileformat=unix
 ...
 SAPSYSTEMNAME=R99
@@ -80,8 +80,9 @@ SAPSNCP=""
 ```
 Add and enable the script to execute on start-up.
 ```shell-script
-# chkconfig -a z_sapr99
-# chkconfig z_sapr99 on
+# systemctl daemon-reload
+# chkconfig -a z_sap${_SAPINST,,}
+# chkconfig z_sap${_SAPINST,,} on
 ```
 ###### 8. Access:
 Via sudo allow the \<sapsid\>adm rights to access the init.d script, edit the sudoers.d file as required.
