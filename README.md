@@ -5,7 +5,7 @@ The [SAP Router](https://support.sap.com/en/tools/connectivity-tools/saprouter.h
 
 The following provides my recommended installation process for LINUX and includes an /etc/init.d script.
  
-## Installation
+# Documentation
 > Installation Guide
 ###### PARAMETERS:
 The parameter `$_SAPINST` is a temporary variable for the install identifying the system, it just allows us to install multiple sSAP Routers on the one host and gives the appearance that the install looks like a standard SAP application layout. For this example 'R' for router followed by the SAP port number '99' i.e. 3299, i.e. SAP System ID of 'R99'.
@@ -176,7 +176,7 @@ z_sapr99.service - LSB: Start the SAProuter
            └─79024 /usr/sap/R99/saprouter/exe/saprouter -r -H <HOST> -I <HOST> .... 
 host:r99adm 4>
 ```
-## Reference & Supporting Documentation
+> Reference & Supporting Documentation
 support.sap.com : Connectivity Tools SAP Router
 \- https://support.sap.com/en/tools/connectivity-tools/saprouter.html
 
